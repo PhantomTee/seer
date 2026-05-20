@@ -1,0 +1,28 @@
+name: Agent — Daily Market Suggestions
+
+on:
+  schedule:
+    # 08:00 UTC every day
+    - cron: '0 8 * * *'
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Manual trigger reason'
+        required: false
+        default: 'manual'
+
+jobs:
+  suggest:
+    name: Generate market suggestions
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Call suggest endpoint
+        run: |
+          STATUS=$(curl -s -o /tmp/body.json -w "%{http_code}" \
+            -X POST "${{ secrets.APP_URL }}/api/agent/suggest" \
+            -H "Authorization: Bearer ${{ secrets.AGENT_CRON_SECRET }}" \
+            -H "Content-Type: application/json")
+          cat /tmp/body.json
+          echo "HTTP $STATUS"
+          if [ "$STATUS" -ge 400 ]; then exit 1; fi

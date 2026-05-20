@@ -1,0 +1,10 @@
+project_id = "arcpredict"
+
+[functions.resolve-markets]
+schedule = "*/5 * * * *"
+
+[functions.monitor-disputes]
+schedule = "*/15 * * * *"
+
+[functions.suggest-markets]
+schedule = "0 8 * * *"

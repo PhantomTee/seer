@@ -1,0 +1,442 @@
+$ next dev "-p" "3004"
+ ⚠ ./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/VirtualMaster.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/index.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/tempo/chainConfig.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/definitions/tempo.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/index.js
+./node_modules/.pnpm/@gemini-wallet+core@0.3.2_v_602666a053abd8eb2e74eae666c00b4c/node_modules/@gemini-wallet/core/dist/index.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/gemini.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+./node_modules/.pnpm/wagmi@2.19.5_@react-native-_04ba8982665d7f7994ffde7352dd3b01/node_modules/wagmi/dist/esm/exports/connectors.js
+./lib/wagmiConfig.ts
+./app/providers.tsx
+ ⚠ ./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/VirtualMaster.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/index.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/tempo/chainConfig.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/definitions/tempo.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/index.js
+./node_modules/.pnpm/@gemini-wallet+core@0.3.2_v_602666a053abd8eb2e74eae666c00b4c/node_modules/@gemini-wallet/core/dist/index.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/gemini.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+./node_modules/.pnpm/wagmi@2.19.5_@react-native-_04ba8982665d7f7994ffde7352dd3b01/node_modules/wagmi/dist/esm/exports/connectors.js
+./lib/wagmiConfig.ts
+./app/providers.tsx
+ ⚠ ./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/VirtualMaster.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/index.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/tempo/chainConfig.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/definitions/tempo.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/index.js
+./node_modules/.pnpm/@gemini-wallet+core@0.3.2_v_602666a053abd8eb2e74eae666c00b4c/node_modules/@gemini-wallet/core/dist/index.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/gemini.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+./node_modules/.pnpm/wagmi@2.19.5_@react-native-_04ba8982665d7f7994ffde7352dd3b01/node_modules/wagmi/dist/esm/exports/connectors.js
+./lib/wagmiConfig.ts
+./app/providers.tsx
+ ⨯ upstream image response timed out for https://images.unsplash.com/photo-1642104704074-907c0698cbd9?auto=format&fit=crop&w=1600&q=80
+ ⚠ ./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/VirtualMaster.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/index.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/tempo/chainConfig.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/definitions/tempo.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/index.js
+./node_modules/.pnpm/@gemini-wallet+core@0.3.2_v_602666a053abd8eb2e74eae666c00b4c/node_modules/@gemini-wallet/core/dist/index.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/gemini.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+./node_modules/.pnpm/wagmi@2.19.5_@react-native-_04ba8982665d7f7994ffde7352dd3b01/node_modules/wagmi/dist/esm/exports/connectors.js
+./lib/wagmiConfig.ts
+./app/providers.tsx
+ ⚠ ./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/VirtualMaster.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/index.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/tempo/chainConfig.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/definitions/tempo.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/index.js
+./node_modules/.pnpm/@gemini-wallet+core@0.3.2_v_602666a053abd8eb2e74eae666c00b4c/node_modules/@gemini-wallet/core/dist/index.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/gemini.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+./node_modules/.pnpm/wagmi@2.19.5_@react-native-_04ba8982665d7f7994ffde7352dd3b01/node_modules/wagmi/dist/esm/exports/connectors.js
+./lib/wagmiConfig.ts
+./app/providers.tsx
+ ⚠ ./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/VirtualMaster.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/index.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/tempo/chainConfig.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/definitions/tempo.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/index.js
+./node_modules/.pnpm/@gemini-wallet+core@0.3.2_v_602666a053abd8eb2e74eae666c00b4c/node_modules/@gemini-wallet/core/dist/index.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/gemini.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+./node_modules/.pnpm/wagmi@2.19.5_@react-native-_04ba8982665d7f7994ffde7352dd3b01/node_modules/wagmi/dist/esm/exports/connectors.js
+./lib/wagmiConfig.ts
+./app/providers.tsx
+ ⚠ ./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/VirtualMaster.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/index.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/tempo/chainConfig.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/definitions/tempoDevnet.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/index.js
+./node_modules/.pnpm/@gemini-wallet+core@0.3.2_v_602666a053abd8eb2e74eae666c00b4c/node_modules/@gemini-wallet/core/dist/index.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/gemini.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+./node_modules/.pnpm/wagmi@2.19.5_@react-native-_04ba8982665d7f7994ffde7352dd3b01/node_modules/wagmi/dist/esm/exports/connectors.js
+./lib/wagmiConfig.ts
+./app/providers.tsx
+ ⚠ ./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/VirtualMaster.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/index.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/tempo/chainConfig.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/definitions/tempoDevnet.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/index.js
+./node_modules/.pnpm/@gemini-wallet+core@0.3.2_v_602666a053abd8eb2e74eae666c00b4c/node_modules/@gemini-wallet/core/dist/index.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/gemini.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+./node_modules/.pnpm/wagmi@2.19.5_@react-native-_04ba8982665d7f7994ffde7352dd3b01/node_modules/wagmi/dist/esm/exports/connectors.js
+./lib/wagmiConfig.ts
+./app/providers.tsx
+ ⚠ ./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/VirtualMaster.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/index.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/tempo/chainConfig.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/definitions/tempo.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/index.js
+./node_modules/.pnpm/@gemini-wallet+core@0.3.2_v_602666a053abd8eb2e74eae666c00b4c/node_modules/@gemini-wallet/core/dist/index.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/gemini.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+./node_modules/.pnpm/wagmi@2.19.5_@react-native-_04ba8982665d7f7994ffde7352dd3b01/node_modules/wagmi/dist/esm/exports/connectors.js
+./lib/wagmiConfig.ts
+./app/providers.tsx
+ ⚠ ./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/VirtualMaster.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/index.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/tempo/chainConfig.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/definitions/tempo.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/index.js
+./node_modules/.pnpm/@gemini-wallet+core@0.3.2_v_602666a053abd8eb2e74eae666c00b4c/node_modules/@gemini-wallet/core/dist/index.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/gemini.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+./node_modules/.pnpm/wagmi@2.19.5_@react-native-_04ba8982665d7f7994ffde7352dd3b01/node_modules/wagmi/dist/esm/exports/connectors.js
+./lib/wagmiConfig.ts
+./app/providers.tsx
+ ⚠ ./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/VirtualMaster.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/index.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/tempo/chainConfig.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/definitions/tempoDevnet.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/index.js
+./node_modules/.pnpm/@gemini-wallet+core@0.3.2_v_602666a053abd8eb2e74eae666c00b4c/node_modules/@gemini-wallet/core/dist/index.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/gemini.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+./node_modules/.pnpm/wagmi@2.19.5_@react-native-_04ba8982665d7f7994ffde7352dd3b01/node_modules/wagmi/dist/esm/exports/connectors.js
+./lib/wagmiConfig.ts
+./app/providers.tsx
+ ⚠ ./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/VirtualMaster.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/index.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/tempo/chainConfig.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/definitions/tempo.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/index.js
+./node_modules/.pnpm/@gemini-wallet+core@0.3.2_v_602666a053abd8eb2e74eae666c00b4c/node_modules/@gemini-wallet/core/dist/index.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/gemini.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+./node_modules/.pnpm/wagmi@2.19.5_@react-native-_04ba8982665d7f7994ffde7352dd3b01/node_modules/wagmi/dist/esm/exports/connectors.js
+./lib/wagmiConfig.ts
+./app/providers.tsx
+ ⚠ ./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/VirtualMaster.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/index.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/tempo/chainConfig.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/definitions/tempo.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/index.js
+./node_modules/.pnpm/@gemini-wallet+core@0.3.2_v_602666a053abd8eb2e74eae666c00b4c/node_modules/@gemini-wallet/core/dist/index.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/gemini.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+./node_modules/.pnpm/wagmi@2.19.5_@react-native-_04ba8982665d7f7994ffde7352dd3b01/node_modules/wagmi/dist/esm/exports/connectors.js
+./lib/wagmiConfig.ts
+./app/providers.tsx
+ ⚠ ./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/VirtualMaster.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/index.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/tempo/chainConfig.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/definitions/tempo.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/index.js
+./node_modules/.pnpm/@gemini-wallet+core@0.3.2_v_602666a053abd8eb2e74eae666c00b4c/node_modules/@gemini-wallet/core/dist/index.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/gemini.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+./node_modules/.pnpm/wagmi@2.19.5_@react-native-_04ba8982665d7f7994ffde7352dd3b01/node_modules/wagmi/dist/esm/exports/connectors.js
+./lib/wagmiConfig.ts
+./app/providers.tsx
+ ⚠ ./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/VirtualMaster.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/index.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/tempo/chainConfig.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/definitions/tempo.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/index.js
+./node_modules/.pnpm/@gemini-wallet+core@0.3.2_v_602666a053abd8eb2e74eae666c00b4c/node_modules/@gemini-wallet/core/dist/index.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/gemini.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+./node_modules/.pnpm/wagmi@2.19.5_@react-native-_04ba8982665d7f7994ffde7352dd3b01/node_modules/wagmi/dist/esm/exports/connectors.js
+./lib/wagmiConfig.ts
+./app/providers.tsx
+ ⚠ ./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/VirtualMaster.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/index.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/tempo/chainConfig.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/definitions/tempo.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/index.js
+./node_modules/.pnpm/@gemini-wallet+core@0.3.2_v_602666a053abd8eb2e74eae666c00b4c/node_modules/@gemini-wallet/core/dist/index.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/gemini.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+./node_modules/.pnpm/wagmi@2.19.5_@react-native-_04ba8982665d7f7994ffde7352dd3b01/node_modules/wagmi/dist/esm/exports/connectors.js
+./lib/wagmiConfig.ts
+./app/providers.tsx
+ ⚠ ./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/VirtualMaster.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/index.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/tempo/chainConfig.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/definitions/tempo.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/index.js
+./node_modules/.pnpm/@gemini-wallet+core@0.3.2_v_602666a053abd8eb2e74eae666c00b4c/node_modules/@gemini-wallet/core/dist/index.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/gemini.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+./node_modules/.pnpm/wagmi@2.19.5_@react-native-_04ba8982665d7f7994ffde7352dd3b01/node_modules/wagmi/dist/esm/exports/connectors.js
+./lib/wagmiConfig.ts
+./app/providers.tsx
+ ⚠ ./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/VirtualMaster.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/index.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/tempo/chainConfig.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/definitions/tempo.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/index.js
+./node_modules/.pnpm/@gemini-wallet+core@0.3.2_v_602666a053abd8eb2e74eae666c00b4c/node_modules/@gemini-wallet/core/dist/index.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/gemini.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+./node_modules/.pnpm/wagmi@2.19.5_@react-native-_04ba8982665d7f7994ffde7352dd3b01/node_modules/wagmi/dist/esm/exports/connectors.js
+./lib/wagmiConfig.ts
+./app/providers.tsx
+ ⚠ ./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/VirtualMaster.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/index.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/tempo/chainConfig.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/definitions/tempoLocalnet.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/index.js
+./node_modules/.pnpm/@gemini-wallet+core@0.3.2_v_602666a053abd8eb2e74eae666c00b4c/node_modules/@gemini-wallet/core/dist/index.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/gemini.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+./node_modules/.pnpm/wagmi@2.19.5_@react-native-_04ba8982665d7f7994ffde7352dd3b01/node_modules/wagmi/dist/esm/exports/connectors.js
+./lib/wagmiConfig.ts
+./app/providers.tsx
+ ⚠ ./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/VirtualMaster.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/index.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/tempo/chainConfig.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/definitions/tempo.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/index.js
+./node_modules/.pnpm/@gemini-wallet+core@0.3.2_v_602666a053abd8eb2e74eae666c00b4c/node_modules/@gemini-wallet/core/dist/index.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/gemini.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+./node_modules/.pnpm/wagmi@2.19.5_@react-native-_04ba8982665d7f7994ffde7352dd3b01/node_modules/wagmi/dist/esm/exports/connectors.js
+./lib/wagmiConfig.ts
+./app/providers.tsx
+ ⚠ ./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/VirtualMaster.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/index.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/tempo/chainConfig.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/definitions/tempo.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/index.js
+./node_modules/.pnpm/@gemini-wallet+core@0.3.2_v_602666a053abd8eb2e74eae666c00b4c/node_modules/@gemini-wallet/core/dist/index.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/gemini.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+./node_modules/.pnpm/wagmi@2.19.5_@react-native-_04ba8982665d7f7994ffde7352dd3b01/node_modules/wagmi/dist/esm/exports/connectors.js
+./lib/wagmiConfig.ts
+./app/providers.tsx
+ ⚠ ./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/VirtualMaster.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/index.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/tempo/chainConfig.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/definitions/tempo.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/index.js
+./node_modules/.pnpm/@gemini-wallet+core@0.3.2_v_602666a053abd8eb2e74eae666c00b4c/node_modules/@gemini-wallet/core/dist/index.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/gemini.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+./node_modules/.pnpm/wagmi@2.19.5_@react-native-_04ba8982665d7f7994ffde7352dd3b01/node_modules/wagmi/dist/esm/exports/connectors.js
+./lib/wagmiConfig.ts
+./app/providers.tsx
+ ⚠ ./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/VirtualMaster.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/index.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/tempo/chainConfig.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/definitions/tempo.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/index.js
+./node_modules/.pnpm/@gemini-wallet+core@0.3.2_v_602666a053abd8eb2e74eae666c00b4c/node_modules/@gemini-wallet/core/dist/index.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/gemini.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+./node_modules/.pnpm/wagmi@2.19.5_@react-native-_04ba8982665d7f7994ffde7352dd3b01/node_modules/wagmi/dist/esm/exports/connectors.js
+./lib/wagmiConfig.ts
+./app/providers.tsx
+ ⚠ ./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/VirtualMaster.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/index.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/tempo/chainConfig.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/definitions/tempo.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/index.js
+./node_modules/.pnpm/@gemini-wallet+core@0.3.2_v_602666a053abd8eb2e74eae666c00b4c/node_modules/@gemini-wallet/core/dist/index.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/gemini.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+./node_modules/.pnpm/wagmi@2.19.5_@react-native-_04ba8982665d7f7994ffde7352dd3b01/node_modules/wagmi/dist/esm/exports/connectors.js
+./lib/wagmiConfig.ts
+./app/providers.tsx
+ ⨯ Error: ENOENT: no such file or directory, open 'C:\Users\phant\Arcpredict\.next\routes-manifest.json'
+    at async M (C:\Users\phant\Arcpredict\.next\server\app\create\page.js:1:10075) {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\phant\\Arcpredict\\.next\\routes-manifest.json',
+  page: '/create'
+}
+ ⚠ ./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/VirtualMaster.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/index.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/tempo/chainConfig.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/definitions/tempo.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/index.js
+./node_modules/.pnpm/@gemini-wallet+core@0.3.2_v_602666a053abd8eb2e74eae666c00b4c/node_modules/@gemini-wallet/core/dist/index.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/gemini.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+./node_modules/.pnpm/wagmi@2.19.5_@react-native-_04ba8982665d7f7994ffde7352dd3b01/node_modules/wagmi/dist/esm/exports/connectors.js
+./lib/wagmiConfig.ts
+./app/providers.tsx
+ ⚠ ./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/VirtualMaster.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/index.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/tempo/chainConfig.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/definitions/tempo.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/index.js
+./node_modules/.pnpm/@gemini-wallet+core@0.3.2_v_602666a053abd8eb2e74eae666c00b4c/node_modules/@gemini-wallet/core/dist/index.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/gemini.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+./node_modules/.pnpm/wagmi@2.19.5_@react-native-_04ba8982665d7f7994ffde7352dd3b01/node_modules/wagmi/dist/esm/exports/connectors.js
+./lib/wagmiConfig.ts
+./app/providers.tsx
+ ⚠ ./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/internal/virtualMasterPool.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/VirtualMaster.js
+./node_modules/.pnpm/ox@0.14.20_typescript@6.0.3_zod@4.4.3/node_modules/ox/_esm/tempo/index.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/tempo/chainConfig.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/definitions/tempo.js
+./node_modules/.pnpm/viem@2.49.3_bufferutil@4.1._91b0a2546178d39721e141e7734fd255/node_modules/viem/_esm/chains/index.js
+./node_modules/.pnpm/@gemini-wallet+core@0.3.2_v_602666a053abd8eb2e74eae666c00b4c/node_modules/@gemini-wallet/core/dist/index.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/gemini.js
+./node_modules/.pnpm/@wagmi+connectors@6.2.0_d92ef20e76208fd555ed0930fd323d03/node_modules/@wagmi/connectors/dist/esm/exports/index.js
+./node_modules/.pnpm/wagmi@2.19.5_@react-native-_04ba8982665d7f7994ffde7352dd3b01/node_modules/wagmi/dist/esm/exports/connectors.js
+./lib/wagmiConfig.ts
+./app/providers.tsx

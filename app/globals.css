@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── THEME VARIABLES ────────────────────────────────── */
+:root, [data-theme='dark'] {
+  color-scheme: dark;
+  --ink:          #0c0c0f;
+  --panel:        #161618;
+  --text-base:    #f0f0f0;
+  --text-muted:   rgba(240,240,240,0.55);
+  --border-sub:   rgba(255,255,255,0.15);
+  --border-faint: rgba(255,255,255,0.08);
+  --bg-card:      rgba(255,255,255,0.035);
+  --bg-card-alt:  rgba(255,255,255,0.04);
+  --dot-color:    rgba(255,214,0,0.07);
+  --shadow-std:   #000;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+  --ink:          #f7f3ea;
+  --panel:        #ede9de;
+  --text-base:    #151210;
+  --text-muted:   rgba(21,18,16,0.55);
+  --border-sub:   rgba(0,0,0,0.13);
+  --border-faint: rgba(0,0,0,0.07);
+  --bg-card:      rgba(0,0,0,0.04);
+  --bg-card-alt:  rgba(0,0,0,0.05);
+  --dot-color:    rgba(0,0,0,0.055);
+  --shadow-std:   rgba(0,0,0,0.55);
+}
+
+/* ─── NUCLEAR NO-RADIUS RESET ────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  border-radius: 0 !important;
+}
+
+html {
+  min-height: 100%;
+  font-size: 17px;
+  background: var(--ink);
+  transition: background 0.18s ease;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  background-color: var(--ink);
+  background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
+  background-size: 26px 26px;
+  color: var(--text-base);
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+/* ─── Light mode overrides for structural components ──── */
+[data-theme='light'] .bg-ink    { background-color: var(--ink) !important; }
+[data-theme='light'] .bg-panel  { background-color: var(--panel) !important; }
+[data-theme='light'] .text-white { color: var(--text-base) !important; }
+[data-theme='light'] .border-white\/15 { border-color: var(--border-sub) !important; }
+[data-theme='light'] .border-white\/10 { border-color: var(--border-faint) !important; }
+[data-theme='light'] .bg-white\/\[0\.035\] { background-color: var(--bg-card) !important; }
+[data-theme='light'] .bg-white\/\[0\.04\]  { background-color: var(--bg-card-alt) !important; }
+[data-theme='light'] .bg-white\/\[0\.025\] { background-color: var(--bg-card) !important; }
+[data-theme='light'] .bg-white\/8 { background-color: rgba(0,0,0,0.08) !important; }
+[data-theme='light'] .shadow-hard { box-shadow: 4px 4px 0 0 rgba(0,0,0,0.35) !important; }
+[data-theme='light'] .shadow-hard-lg { box-shadow: 6px 6px 0 0 rgba(0,0,0,0.35) !important; }
+[data-theme='light'] .shadow-hard-xl { box-shadow: 8px 8px 0 0 rgba(0,0,0,0.35) !important; }
+
+/* Text opacity classes in light mode */
+[data-theme='light'] [class*='text-white\/'] {
+  --tw-text-opacity: 1;
+}
+[data-theme='light'] .text-white\/80 { color: rgba(21,18,16,0.80) !important; }
+[data-theme='light'] .text-white\/70 { color: rgba(21,18,16,0.70) !important; }
+[data-theme='light'] .text-white\/65 { color: rgba(21,18,16,0.65) !important; }
+[data-theme='light'] .text-white\/60 { color: rgba(21,18,16,0.60) !important; }
+[data-theme='light'] .text-white\/55 { color: rgba(21,18,16,0.55) !important; }
+[data-theme='light'] .text-white\/50 { color: rgba(21,18,16,0.50) !important; }
+[data-theme='light'] .text-white\/45 { color: rgba(21,18,16,0.45) !important; }
+[data-theme='light'] .text-white\/40 { color: rgba(21,18,16,0.40) !important; }
+[data-theme='light'] .text-white\/35 { color: rgba(21,18,16,0.35) !important; }
+[data-theme='light'] .text-white\/30 { color: rgba(21,18,16,0.30) !important; }
+[data-theme='light'] .text-white\/25 { color: rgba(21,18,16,0.25) !important; }
+[data-theme='light'] .text-white\/22 { color: rgba(21,18,16,0.22) !important; }
+[data-theme='light'] .text-white\/20 { color: rgba(21,18,16,0.20) !important; }
+[data-theme='light'] .text-white\/18 { color: rgba(21,18,16,0.18) !important; }
+
+a { color: inherit; text-decoration: none; }
+button, input, textarea, select { font: inherit; }
+
+/* ─── Focus ring ─────────────────────────────────────── */
+.focus-ring { outline: 2px solid transparent; outline-offset: 2px; }
+.focus-ring:focus-visible { outline: 3px solid #FFD600; outline-offset: 3px; }
+
+/* ─── Hard shadow utilities ──────────────────────────── */
+.shadow-hard        { box-shadow: 4px 4px 0 0 #000; }
+.shadow-hard-lg     { box-shadow: 6px 6px 0 0 #000; }
+.shadow-hard-xl     { box-shadow: 8px 8px 0 0 #000; }
+.shadow-hard-gold   { box-shadow: 4px 4px 0 0 #FFD600; }
+.shadow-hard-blue   { box-shadow: 4px 4px 0 0 #4A9EFF; }
+.shadow-hard-danger { box-shadow: 4px 4px 0 0 #FF2D6B; }
+.shadow-hard-white  { box-shadow: 4px 4px 0 0 rgba(255,255,255,0.15); }
+
+/* ─── Press effect for hard-shadow buttons ───────────── */
+.btn-press { transition: transform 80ms, box-shadow 80ms; }
+.btn-press:active { transform: translate(4px, 4px); box-shadow: none !important; }
+
+/* ─── Animations ─────────────────────────────────────── */
+@keyframes countUp     { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+@keyframes barGrow     { from { width:0; } }
+@keyframes pulseGently { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+@keyframes fadeSlideIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+@keyframes floatY      { 0%,100% { transform:translateY(0) rotate(var(--rot,0deg)); } 50% { transform:translateY(-10px) rotate(var(--rot,0deg)); } }
+@keyframes spinSlow    { from { transform:rotate(0deg); } to { transform:rotate(360deg); } }
+
+/* ─── 3-D Dice throw animation ───────────────────────── */
+/*  The cube tumbles rapidly, decelerates, bounces once,  */
+/*  then rests with face-6 facing the viewer (~Y=1260°).  */
+/*  Total cycle: 6 s — 2.4 s throw + 1.2 s settle + 2.4 s pause */
+@keyframes diceThrow {
+  0%   { transform: rotateX(0deg)   rotateY(0deg)    rotateZ(0deg);   }
+  10%  { transform: rotateX(144deg) rotateY(216deg)  rotateZ(108deg); }
+  20%  { transform: rotateX(288deg) rotateY(432deg)  rotateZ(216deg); }
+  30%  { transform: rotateX(432deg) rotateY(648deg)  rotateZ(324deg); }
+  40%  { transform: rotateX(576deg) rotateY(864deg)  rotateZ(432deg); }
+  /* decelerate */
+  50%  { transform: rotateX(666deg) rotateY(1020deg) rotateZ(480deg); }
+  58%  { transform: rotateX(706deg) rotateY(1170deg) rotateZ(508deg); }
+  65%  { transform: rotateX(718deg) rotateY(1248deg) rotateZ(516deg); }
+  /* bounce */
+  70%  { transform: rotateX(724deg) rotateY(1268deg) rotateZ(520deg); }
+  74%  { transform: rotateX(718deg) rotateY(1256deg) rotateZ(516deg); }
+  78%  { transform: rotateX(721deg) rotateY(1261deg) rotateZ(518deg); }
+  /* settled on face 6 — hold */
+  82%  { transform: rotateX(720deg) rotateY(1260deg) rotateZ(518deg); }
+  100% { transform: rotateX(720deg) rotateY(1260deg) rotateZ(518deg); }
+}
+
+/* ─── Dice face dot layouts ──────────────────────────── */
+.dice-face { position:absolute; width:52px; height:52px; background:#fff; border:2.5px solid #000; display:grid; padding:6px; box-sizing:border-box; }
+.dice-dot  { width:8px; height:8px; background:#1a1a1a; border-radius:50%; place-self:center; }
+
+.animate-count-up      { animation: countUp     0.35s ease-out; }
+.animate-bar-grow      { animation: barGrow     0.9s  ease-out; }
+.animate-pulse-gentle  { animation: pulseGently 2.4s  ease-in-out infinite; }
+.animate-fade-slide-in { animation: fadeSlideIn 0.22s ease-out; }
+.animate-float         { animation: floatY      3s    ease-in-out infinite; }
+.animate-spin-slow     { animation: spinSlow    12s   linear     infinite; }
+.animate-dice-throw    { animation: diceThrow   6s    cubic-bezier(0.25,0.46,0.45,0.94) infinite; }
+
+.tabular-nums { font-variant-numeric: tabular-nums; }
+
+/* Mobile touch targets */
+@media (max-width: 640px) {
+  button, a[role="button"] { min-height: 44px; }
+}

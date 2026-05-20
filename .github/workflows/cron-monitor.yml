@@ -1,0 +1,28 @@
+name: Agent — Dispute Monitor
+
+on:
+  schedule:
+    # Every 15 minutes — settles expired optimistic dispute windows
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Manual trigger reason'
+        required: false
+        default: 'manual'
+
+jobs:
+  monitor:
+    name: Settle expired disputes
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Call monitor endpoint
+        run: |
+          STATUS=$(curl -s -o /tmp/body.json -w "%{http_code}" \
+            -X POST "${{ secrets.APP_URL }}/api/agent/monitor" \
+            -H "Authorization: Bearer ${{ secrets.AGENT_CRON_SECRET }}" \
+            -H "Content-Type: application/json")
+          cat /tmp/body.json
+          echo "HTTP $STATUS"
+          if [ "$STATUS" -ge 400 ]; then exit 1; fi
