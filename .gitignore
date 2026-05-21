@@ -12,3 +12,5 @@ contracts/broadcast
 contracts/lib
 types/supabase.ts
 *.log
+
+.vercel
