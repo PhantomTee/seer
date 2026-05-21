@@ -19,7 +19,8 @@ interface OAIResponse {
 }
 
 async function chatComplete(messages: OAIMessage[], maxTokens = 1024): Promise<string> {
-  const apiKey = process.env.GROQ_API_KEY
+  // Strip UTF-8 BOM (0xFEFF) that PowerShell can inject when piping to stdin
+  const apiKey = process.env.GROQ_API_KEY?.replace(/^﻿/, '').trim()
   if (!apiKey) {
     throw new Error('GROQ_API_KEY is not configured')
   }

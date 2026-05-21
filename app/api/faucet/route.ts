@@ -25,7 +25,8 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'address is required' }, { status: 400 })
   }
 
-  const apiKey = process.env.CIRCLE_API_KEY
+  // Strip UTF-8 BOM (0xFEFF) that PowerShell can inject when piping to stdin
+  const apiKey = process.env.CIRCLE_API_KEY?.replace(/^﻿/, '').trim()
   if (!apiKey) {
     // No API key configured — tell the client to open the faucet UI instead
     return NextResponse.json({ fallback: FAUCET_FALLBACK }, { status: 200 })
