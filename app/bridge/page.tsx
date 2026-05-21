@@ -1,13 +1,7 @@
-import dynamic from 'next/dynamic'
 import { ExternalLink } from 'lucide-react'
 import { CCTPPanel } from '@/components/bridge/CCTPPanel'
+import { LiFiWidgetLoader } from '@/components/bridge/LiFiWidgetLoader'
 import { ARC_TESTNET } from '@/constants/arc'
-
-// @lifi/widget uses browser-only APIs — must not run on the server
-const LiFiBridgeWidget = dynamic(
-  () => import('@/components/bridge/LiFiWidget').then((m) => m.LiFiBridgeWidget),
-  { ssr: false }
-)
 
 export default function BridgePage() {
   return (
@@ -30,7 +24,7 @@ export default function BridgePage() {
         </a>
       </div>
       <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_420px]">
-        <LiFiBridgeWidget />
+        <LiFiWidgetLoader />
         <div className="space-y-5">
           <CCTPPanel />
           <div className="rounded-md border border-white/10 bg-white/[0.035] p-4 text-sm leading-6 text-white/58 shadow-hard">
