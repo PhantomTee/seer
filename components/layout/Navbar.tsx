@@ -4,12 +4,10 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { ArrowLeftRight, BrainCircuit, Compass, Landmark, Menu, Moon, PlusCircle, ShieldAlert, Sun, X } from 'lucide-react'
-import { useAccount, useChainId } from 'wagmi'
+import { useAccount } from 'wagmi'
 import { ConnectButton } from '@/components/shared/ConnectButton'
-import { FaucetButton } from '@/components/shared/FaucetButton'
 import { useTheme } from '@/hooks/useTheme'
 import { cn } from '@/lib/utils'
-import { ARC_TESTNET } from '@/constants/arc'
 
 // Hardcoded — never expose via env var so it doesn't leak to clients
 const ADMIN_ADDRESS = '0xf869c7b8a19146a4bbd5466e83c3b785ae7ee148'
@@ -52,8 +50,6 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const { theme, toggle } = useTheme()
   const { address, isConnected } = useAccount()
-  const chainId = useChainId()
-  const onArc = isConnected && chainId === ARC_TESTNET.chainId
   const isAdmin = isConnected && address?.toLowerCase() === ADMIN_ADDRESS
 
   function isActive(href: string) {
@@ -108,15 +104,6 @@ export function Navbar() {
               <ShieldAlert className="h-3.5 w-3.5" />
               Admin
             </Link>
-          )}
-
-          {/* Faucet — only when on Arc */}
-          {onArc && address && (
-            <FaucetButton
-              address={address}
-              variant="compact"
-              label="Faucet"
-            />
           )}
 
           {/* Theme toggle */}
