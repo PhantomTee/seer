@@ -2,30 +2,114 @@
 
 import { Bot, RefreshCcw, Send } from 'lucide-react'
 import { useCallback, useEffect, useRef, useState } from 'react'
-import ReactMarkdown from 'react-markdown'
 import type { Market } from '@/types/market'
 
-/** Render the full agent response with proper markdown */
-function AgentResponse({ text }: { text: string }) {
+/** Render inline text: converts **bold** spans to <strong> */
+function Inline({ text }: { text: string }) {
+  const parts = text.split(/(\*\*.*?\*\*)/g)
   return (
-    <ReactMarkdown
-      className="space-y-2 text-sm leading-6 text-white/70"
-      components={{
-        p: ({ children }) => <p className="text-white/70">{children}</p>,
-        strong: ({ children }) => <strong className="font-semibold text-white">{children}</strong>,
-        em: ({ children }) => <em className="text-white/80">{children}</em>,
-        ul: ({ children }) => <ul className="ml-4 list-disc space-y-1 text-white/70">{children}</ul>,
-        ol: ({ children }) => <ol className="ml-4 list-decimal space-y-1 text-white/70">{children}</ol>,
-        li: ({ children }) => <li className="text-white/70">{children}</li>,
-        h1: ({ children }) => <h1 className="font-semibold text-white">{children}</h1>,
-        h2: ({ children }) => <h2 className="font-semibold text-white">{children}</h2>,
-        h3: ({ children }) => <h3 className="font-semibold text-white/90">{children}</h3>,
-        code: ({ children }) => <code className="rounded bg-white/10 px-1 font-mono text-xs text-mint">{children}</code>,
-        hr: () => <hr className="border-white/10" />,
-      }}
-    >
-      {text}
-    </ReactMarkdown>
+    <>
+      {parts.map((part, i) =>
+        part.startsWith('**') && part.endsWith('**') && part.length > 4
+          ? <strong key={i} className="font-semibold text-white">{part.slice(2, -2)}</strong>
+          : <span key={i}>{part}</span>
+      )}
+    </>
+  )
+}
+
+/**
+ * Renders a Groq/LLM markdown response correctly.
+ * Handles: **bold**, ## headings, numbered lists, bullet lists, paragraphs.
+ */
+function AgentResponse({ text }: { text: string }) {
+  // Split into blocks on blank lines
+  const blocks = text.split(/\n{2,}/)
+
+  return (
+    <div className="space-y-3 text-sm leading-6 text-white/70">
+      {blocks.map((block, bi) => {
+        const lines = block.split('\n').filter(Boolean)
+        if (lines.length === 0) return null
+
+        // Numbered list block: most lines start with "1." / "2." etc.
+        const isNumbered = lines.every(l => /^\d+\.\s/.test(l.trim()))
+        if (isNumbered) {
+          return (
+            <ol key={bi} className="ml-4 list-decimal space-y-1 text-white/70">
+              {lines.map((l, li) => (
+                <li key={li}><Inline text={l.replace(/^\d+\.\s*/, '')} /></li>
+              ))}
+            </ol>
+          )
+        }
+
+        // Bullet list block: most lines start with "- " or "* "
+        const isBullet = lines.every(l => /^[-*]\s/.test(l.trim()))
+        if (isBullet) {
+          return (
+            <ul key={bi} className="ml-4 list-disc space-y-1 text-white/70">
+              {lines.map((l, li) => (
+                <li key={li}><Inline text={l.replace(/^[-*]\s*/, '')} /></li>
+              ))}
+            </ul>
+          )
+        }
+
+        // Mixed block: render line by line, detecting list items inline
+        return (
+          <div key={bi} className="space-y-1">
+            {lines.map((line, li) => {
+              const trimmed = line.trim()
+
+              // Heading: ##/###
+              if (/^#{1,3}\s/.test(trimmed)) {
+                const content = trimmed.replace(/^#{1,3}\s*/, '')
+                return (
+                  <p key={li} className="mt-2 font-semibold text-white first:mt-0">
+                    <Inline text={content} />
+                  </p>
+                )
+              }
+
+              // Line that is entirely **bold** → treat as section header
+              if (/^\*\*[^*].*\*\*$/.test(trimmed)) {
+                return (
+                  <p key={li} className="mt-2 font-semibold text-white first:mt-0">
+                    <Inline text={trimmed} />
+                  </p>
+                )
+              }
+
+              // Numbered list item inline
+              if (/^\d+\.\s/.test(trimmed)) {
+                return (
+                  <div key={li} className="flex gap-2">
+                    <span className="shrink-0 text-white/40">{trimmed.match(/^(\d+\.)/)?.[1]}</span>
+                    <span><Inline text={trimmed.replace(/^\d+\.\s*/, '')} /></span>
+                  </div>
+                )
+              }
+
+              // Bullet item inline
+              if (/^[-*]\s/.test(trimmed)) {
+                return (
+                  <div key={li} className="flex gap-2">
+                    <span className="shrink-0 text-white/40">·</span>
+                    <span><Inline text={trimmed.replace(/^[-*]\s*/, '')} /></span>
+                  </div>
+                )
+              }
+
+              // Regular text
+              return (
+                <p key={li}><Inline text={trimmed} /></p>
+              )
+            })}
+          </div>
+        )
+      })}
+    </div>
   )
 }
 
