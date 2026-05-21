@@ -2,38 +2,30 @@
 
 import { Bot, RefreshCcw, Send } from 'lucide-react'
 import { useCallback, useEffect, useRef, useState } from 'react'
+import ReactMarkdown from 'react-markdown'
 import type { Market } from '@/types/market'
 
-/** Render a line of text, converting **word** spans into <strong> elements */
-function BoldLine({ text }: { text: string }) {
-  const parts = text.split(/(\*\*[^*]+\*\*)/g)
-  return (
-    <>
-      {parts.map((part, i) =>
-        part.startsWith('**') && part.endsWith('**')
-          ? <strong key={i} className="font-semibold text-white">{part.slice(2, -2)}</strong>
-          : <span key={i}>{part}</span>
-      )}
-    </>
-  )
-}
-
-/** Render the full agent response with bold support and visual section breaks */
+/** Render the full agent response with proper markdown */
 function AgentResponse({ text }: { text: string }) {
-  const lines = text.split('\n')
   return (
-    <div className="space-y-1 text-sm leading-6 text-white/70">
-      {lines.map((line, i) => {
-        if (line.trim() === '') return <div key={i} className="h-2" />
-        // Section header lines (start with **) get slightly more emphasis
-        const isSectionHeader = /^\*\*[^*]/.test(line.trim())
-        return (
-          <div key={i} className={isSectionHeader ? 'mt-3 first:mt-0' : ''}>
-            <BoldLine text={line} />
-          </div>
-        )
-      })}
-    </div>
+    <ReactMarkdown
+      className="space-y-2 text-sm leading-6 text-white/70"
+      components={{
+        p: ({ children }) => <p className="text-white/70">{children}</p>,
+        strong: ({ children }) => <strong className="font-semibold text-white">{children}</strong>,
+        em: ({ children }) => <em className="text-white/80">{children}</em>,
+        ul: ({ children }) => <ul className="ml-4 list-disc space-y-1 text-white/70">{children}</ul>,
+        ol: ({ children }) => <ol className="ml-4 list-decimal space-y-1 text-white/70">{children}</ol>,
+        li: ({ children }) => <li className="text-white/70">{children}</li>,
+        h1: ({ children }) => <h1 className="font-semibold text-white">{children}</h1>,
+        h2: ({ children }) => <h2 className="font-semibold text-white">{children}</h2>,
+        h3: ({ children }) => <h3 className="font-semibold text-white/90">{children}</h3>,
+        code: ({ children }) => <code className="rounded bg-white/10 px-1 font-mono text-xs text-mint">{children}</code>,
+        hr: () => <hr className="border-white/10" />,
+      }}
+    >
+      {text}
+    </ReactMarkdown>
   )
 }
 

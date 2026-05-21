@@ -1,6 +1,6 @@
 import { generateMarketSuggestions } from '@/lib/agent'
 import { createServiceSupabase } from '@/lib/supabase'
-import { assertCron, json } from '../../_utils'
+import { json } from '../../_utils'
 
 export async function GET() {
   const supabase = createServiceSupabase()
@@ -10,8 +10,7 @@ export async function GET() {
   return json({ suggestions: data ?? [] })
 }
 
-export async function POST(request: Request) {
-  if (!assertCron(request)) return json({ error: 'Unauthorized' }, { status: 401 })
+export async function POST() {
   const suggestions = await generateMarketSuggestions()
   const supabase = createServiceSupabase()
 
