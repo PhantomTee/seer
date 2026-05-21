@@ -80,10 +80,6 @@ NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
 SUPABASE_SERVICE_ROLE_KEY=
 
-# -- Anthropic (Claude Agent) ----------------------------------
-# Get from: https://console.anthropic.com/settings/keys
-ANTHROPIC_API_KEY=
-
 # -- LI.FI ------------------------------------------------------
 # Get from: https://portal.li.fi (API key optional for testnet)
 NEXT_PUBLIC_LIFI_API_KEY=
@@ -93,10 +89,6 @@ NEXT_PUBLIC_LIFI_INTEGRATOR=arcpredict
 # Verify feed addresses at: https://docs.chain.link/data-feeds/price-feeds/addresses
 NEXT_PUBLIC_CHAINLINK_BTC_USD=
 NEXT_PUBLIC_CHAINLINK_ETH_USD=
-
-# -- WalletConnect (optional for mobile wallet support) --------
-# Get from: https://cloud.walletconnect.com
-NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=
 
 # -- App / Agent -----------------------------------------------
 NEXT_PUBLIC_APP_URL=http://localhost:3000
