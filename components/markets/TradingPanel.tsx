@@ -2,13 +2,16 @@
 
 import { ChevronDown, ChevronUp, Info, LockKeyhole, TrendingDown, TrendingUp } from 'lucide-react'
 import { useMemo, useState } from 'react'
-import { parseUnits, zeroAddress, type Hex } from 'viem'
+import { createWalletClient, formatUnits, http, parseUnits, zeroAddress, type Hex } from 'viem'
+import { privateKeyToAccount } from 'viem/accounts'
 import { useAccount, useChainId, usePublicClient, useReadContract, useSwitchChain, useWriteContract } from 'wagmi'
 import { ConfidentialPositionPanel } from '@/components/privacy/ConfidentialPositionPanel'
 import { TransactionStatus } from '@/components/shared/TransactionStatus'
 import { ARC_TESTNET } from '@/constants/arc'
 import { useFairblock } from '@/hooks/useFairblock'
-import { cpmmAbi, erc20Abi, getContractAddresses, orderBookAbi } from '@/lib/contracts'
+import { usePrivacyWallet } from '@/hooks/usePrivacyWallet'
+import { arcTestnet } from '@/lib/arc'
+import { cpmmAbi, erc20Abi, getContractAddresses, getPublicClient, orderBookAbi } from '@/lib/contracts'
 import type { Market, Trade } from '@/types/market'
 
 async function syncTradeToSupabase(params: {

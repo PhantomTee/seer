@@ -1,7 +1,13 @@
+import dynamic from 'next/dynamic'
 import { ExternalLink } from 'lucide-react'
 import { CCTPPanel } from '@/components/bridge/CCTPPanel'
-import { LiFiBridgeWidget } from '@/components/bridge/LiFiWidget'
 import { ARC_TESTNET } from '@/constants/arc'
+
+// @lifi/widget uses browser-only APIs — must not run on the server
+const LiFiBridgeWidget = dynamic(
+  () => import('@/components/bridge/LiFiWidget').then((m) => m.LiFiBridgeWidget),
+  { ssr: false }
+)
 
 export default function BridgePage() {
   return (
