@@ -75,9 +75,9 @@ export function TradingPanel({ market, trades = [] }: { market: Market; trades?:
   const { switchChainAsync } = useSwitchChain()
   const { writeContractAsync } = useWriteContract()
   const fairblock = useFairblock()
+  const pw = usePrivacyWallet()
 
   const rawYesProb = latestYesPrice(trades)
-  // Fall back to 0.5 (fair market start) only for the math — we show "—" in the UI when null
   const yesProb = rawYesProb ?? 0.5
   const noProb = 1 - yesProb
   const [outcome, setOutcome] = useState<'YES' | 'NO'>('YES')
@@ -96,107 +96,182 @@ export function TradingPanel({ market, trades = [] }: { market: Market; trades?:
   const returnPct = useMemo(() => (stake > 0 ? ((1 / price - 1) * 100).toFixed(0) : '0'), [price, stake])
 
   const amountUnits = useMemo(() => {
-    try {
-      return parseUsdcInput(amount)
-    } catch {
-      return 0n
-    }
+    try { return parseUsdcInput(amount) } catch { return 0n }
   }, [amount])
 
   const limitPriceUnits = useMemo(() => {
-    try {
-      return parsePriceInput(limitPrice)
-    } catch {
-      return 0n
-    }
+    try { return parsePriceInput(limitPrice) } catch { return 0n }
   }, [limitPrice])
 
   const spender = mode === 'AMM' ? addresses.cpmm : addresses.orderBook
+
+  // MetaMask wallet allowance
   const { data: allowance, refetch: refetchAllowance } = useReadContract({
     address: addresses.usdc,
     abi: erc20Abi,
     functionName: 'allowance',
     args: [address ?? zeroAddress, spender ?? zeroAddress],
     chainId: ARC_TESTNET.chainId,
-    query: { enabled: Boolean(address && spender) }
+    query: { enabled: Boolean(address && spender && !privateTrade) }
   })
+
+  // Privacy wallet on-chain USDC balance (shown in panel when privateTrade is on)
+  const { data: pwBalanceRaw } = useReadContract({
+    address: addresses.usdc,
+    abi: erc20Abi,
+    functionName: 'balanceOf',
+    args: [pw.address as `0x${string}`],
+    chainId: ARC_TESTNET.chainId,
+    query: { enabled: Boolean(pw.isReady && privateTrade) }
+  })
+  const pwUsdcBalance = pwBalanceRaw ? Number(formatUnits(pwBalanceRaw as bigint, 6)) : 0
+
+  const usePrivacy = privateTrade && pw.isReady
 
   const isClosed = market.state !== 'OPEN'
   const isBusy = txStatus === 'pending' || fairblock.busy
   const hasDeployedRoute = Boolean(spender)
-  const requiresApproval = amountUnits > ((allowance as bigint | undefined) ?? 0n)
-  const canExecute = !isClosed && hasDeployedRoute && amountUnits > 0n && !isBusy
+  const requiresApproval = !usePrivacy && amountUnits > ((allowance as bigint | undefined) ?? 0n)
+  const canExecute = !isClosed && hasDeployedRoute && amountUnits > 0n && !isBusy &&
+    (usePrivacy || (isConnected && Boolean(address)))
 
   const accentYes = 'bg-mint border-black text-black shadow-hard'
   const accentNo = 'bg-danger border-black text-white shadow-hard-danger'
 
-  async function waitFor(hash: Hex) {
-    if (!publicClient) throw new Error('Arc public client is not ready')
-    return publicClient.waitForTransactionReceipt({ hash })
-  }
-
   async function handleExecute() {
     try {
       setTxStatus('pending')
-      setTxMessage('Preparing transaction...')
+      setTxMessage('Preparing transaction…')
 
-      if (!isConnected || !address) throw new Error('Connect a wallet first')
-      if (chainId !== ARC_TESTNET.chainId) {
-        setTxMessage('Switching to Arc Testnet...')
-        await switchChainAsync({ chainId: ARC_TESTNET.chainId })
-      }
       if (!spender) throw new Error('Deploy contracts and fill the route address in .env.local')
       if (amountUnits === 0n) throw new Error('Enter a USDC amount')
 
-      // Privacy wallet is set up independently via the ConfidentialPositionPanel — no action needed here
+      if (usePrivacy) {
+        // ── Private path: sign with privacy wallet key, no MetaMask needed ──
+        const account = privateKeyToAccount(pw.privateKey as `0x${string}`)
+        const privClient = createWalletClient({
+          account,
+          chain: arcTestnet,
+          transport: http(process.env.NEXT_PUBLIC_ARC_RPC_URL || arcTestnet.rpcUrls.default.http[0])
+        })
+        const pubClient = getPublicClient()
 
-      const orderBookPrice = limitPriceUnits
-      const orderBookSize = orderBookPrice > 0n ? (amountUnits * PRICE_SCALE) / orderBookPrice : 0n
-      const approvalAmount = mode === 'AMM' ? amountUnits : (orderBookSize * orderBookPrice) / PRICE_SCALE
-      const currentAllowance = (allowance as bigint | undefined) ?? 0n
-
-      if (currentAllowance < approvalAmount) {
-        setTxMessage('Approving USDC...')
-        const approvalHash = await writeContractAsync({
+        // Check privacy wallet allowance on-chain
+        const currentAllowance = await pubClient.readContract({
           address: addresses.usdc,
           abi: erc20Abi,
-          functionName: 'approve',
-          args: [spender, approvalAmount]
-        })
-        await waitFor(approvalHash)
-        await refetchAllowance()
-      }
+          functionName: 'allowance',
+          args: [account.address, spender]
+        }) as bigint
 
-      const outcomeIndex = outcome === 'YES' ? 0n : 1n
-      let hash: Hex
-      if (mode === 'AMM') {
-        if (!addresses.cpmm) throw new Error('CPMM address is missing')
-        const priceUnits = BigInt(Math.max(1, Math.round(price * 1_000_000)))
-        const expectedOut = (amountUnits * PRICE_SCALE) / priceUnits
-        const minOut = (expectedOut * 99n) / 100n
-        setTxMessage(`Buying ${outcome} through the CPMM...`)
-        hash = await writeContractAsync({
-          address: addresses.cpmm,
-          abi: cpmmAbi,
-          functionName: 'buyOutcome',
-          args: [BigInt(market.id), outcomeIndex, amountUnits, minOut]
+        if (currentAllowance < amountUnits) {
+          setTxMessage('Approving USDC from privacy wallet…')
+          const approvalHash = await privClient.writeContract({
+            address: addresses.usdc,
+            abi: erc20Abi,
+            functionName: 'approve',
+            args: [spender, amountUnits],
+            chain: arcTestnet
+          })
+          await pubClient.waitForTransactionReceipt({ hash: approvalHash })
+        }
+
+        const outcomeIndex = outcome === 'YES' ? 0n : 1n
+        let hash: Hex
+
+        if (mode === 'AMM') {
+          if (!addresses.cpmm) throw new Error('CPMM address is missing')
+          const priceUnits = BigInt(Math.max(1, Math.round(price * 1_000_000)))
+          const expectedOut = (amountUnits * PRICE_SCALE) / priceUnits
+          const minOut = (expectedOut * 99n) / 100n
+          setTxMessage(`Buying ${outcome} from privacy wallet…`)
+          hash = await privClient.writeContract({
+            address: addresses.cpmm,
+            abi: cpmmAbi,
+            functionName: 'buyOutcome',
+            args: [BigInt(market.id), outcomeIndex, amountUnits, minOut],
+            chain: arcTestnet
+          })
+        } else {
+          if (!addresses.orderBook) throw new Error('OrderBook address is missing')
+          const orderBookPrice = limitPriceUnits
+          const orderBookSize = orderBookPrice > 0n ? (amountUnits * PRICE_SCALE) / orderBookPrice : 0n
+          if (orderBookPrice === 0n || orderBookSize === 0n) throw new Error('Enter a valid limit price')
+          setTxMessage(`Placing ${outcome} limit order from privacy wallet…`)
+          hash = await privClient.writeContract({
+            address: addresses.orderBook,
+            abi: orderBookAbi,
+            functionName: 'placeOrder',
+            args: [BigInt(market.id), outcomeIndex, 0, orderBookPrice, orderBookSize],
+            chain: arcTestnet
+          })
+        }
+
+        await pubClient.waitForTransactionReceipt({ hash })
+        await syncTradeToSupabase({
+          marketId: market.id,
+          walletAddress: account.address,
+          outcomeIndex: outcome === 'YES' ? 0 : 1,
+          price: outcome === 'YES' ? yesProb : noProb,
+          amount,
+          txHash: hash,
+          orderType: mode === 'AMM' ? 'market' : 'limit',
         })
+        setTxStatus('success')
+        setTxMessage(`Confirmed: ${hash.slice(0, 10)}…${hash.slice(-6)}`)
+
       } else {
-        if (!addresses.orderBook) throw new Error('OrderBook address is missing')
-        if (orderBookPrice === 0n || orderBookSize === 0n) throw new Error('Enter a valid limit price')
-        setTxMessage(`Placing ${outcome} limit order...`)
-        hash = await writeContractAsync({
-          address: addresses.orderBook,
-          abi: orderBookAbi,
-          functionName: 'placeOrder',
-          args: [BigInt(market.id), outcomeIndex, 0, orderBookPrice, orderBookSize]
-        })
-      }
+        // ── Standard MetaMask path ────────────────────────────────────────
+        if (!isConnected || !address) throw new Error('Connect a wallet first')
+        if (chainId !== ARC_TESTNET.chainId) {
+          setTxMessage('Switching to Arc Testnet…')
+          await switchChainAsync({ chainId: ARC_TESTNET.chainId })
+        }
 
-      await waitFor(hash)
+        const orderBookPrice = limitPriceUnits
+        const orderBookSize = orderBookPrice > 0n ? (amountUnits * PRICE_SCALE) / orderBookPrice : 0n
+        const approvalAmount = mode === 'AMM' ? amountUnits : (orderBookSize * orderBookPrice) / PRICE_SCALE
+        const currentAllowance = (allowance as bigint | undefined) ?? 0n
 
-      // Sync confirmed trade to Supabase so price chart + recent trades update
-      if (address) {
+        if (currentAllowance < approvalAmount) {
+          setTxMessage('Approving USDC…')
+          const approvalHash = await writeContractAsync({
+            address: addresses.usdc,
+            abi: erc20Abi,
+            functionName: 'approve',
+            args: [spender, approvalAmount]
+          })
+          await publicClient!.waitForTransactionReceipt({ hash: approvalHash })
+          await refetchAllowance()
+        }
+
+        const outcomeIndex = outcome === 'YES' ? 0n : 1n
+        let hash: Hex
+        if (mode === 'AMM') {
+          if (!addresses.cpmm) throw new Error('CPMM address is missing')
+          const priceUnits = BigInt(Math.max(1, Math.round(price * 1_000_000)))
+          const expectedOut = (amountUnits * PRICE_SCALE) / priceUnits
+          const minOut = (expectedOut * 99n) / 100n
+          setTxMessage(`Buying ${outcome} through the CPMM…`)
+          hash = await writeContractAsync({
+            address: addresses.cpmm,
+            abi: cpmmAbi,
+            functionName: 'buyOutcome',
+            args: [BigInt(market.id), outcomeIndex, amountUnits, minOut]
+          })
+        } else {
+          if (!addresses.orderBook) throw new Error('OrderBook address is missing')
+          if (orderBookPrice === 0n || orderBookSize === 0n) throw new Error('Enter a valid limit price')
+          setTxMessage(`Placing ${outcome} limit order…`)
+          hash = await writeContractAsync({
+            address: addresses.orderBook,
+            abi: orderBookAbi,
+            functionName: 'placeOrder',
+            args: [BigInt(market.id), outcomeIndex, 0, orderBookPrice, orderBookSize]
+          })
+        }
+
+        await publicClient!.waitForTransactionReceipt({ hash })
         await syncTradeToSupabase({
           marketId: market.id,
           walletAddress: address,
@@ -206,11 +281,10 @@ export function TradingPanel({ market, trades = [] }: { market: Market; trades?:
           txHash: hash,
           orderType: mode === 'AMM' ? 'market' : 'limit',
         })
+        setTxStatus('success')
+        setTxMessage(`Confirmed: ${hash.slice(0, 10)}…${hash.slice(-6)}`)
+        await refetchAllowance()
       }
-
-      setTxStatus('success')
-      setTxMessage(`Confirmed: ${hash.slice(0, 10)}...${hash.slice(-6)}`)
-      await refetchAllowance()
     } catch (error) {
       setTxStatus('error')
       setTxMessage(error instanceof Error ? error.message : 'Transaction failed')
@@ -334,18 +408,38 @@ export function TradingPanel({ market, trades = [] }: { market: Market; trades?:
         </div>
       </div>
 
-      {/* Fairblock toggle */}
+      {/* Privacy wallet toggle */}
       <label className="mb-4 flex cursor-pointer items-center gap-2.5 border border-white/10 bg-white/[0.025] px-3 py-2.5 transition-colors hover:bg-white/[0.04]">
-        <input type="checkbox" checked={privateTrade} onChange={(event) => setPrivateTrade(event.target.checked)} className="h-4 w-4 accent-mint" />
+        <input type="checkbox" checked={privateTrade} onChange={(e) => setPrivateTrade(e.target.checked)} className="h-4 w-4 accent-mint" />
         <LockKeyhole className="h-3.5 w-3.5 shrink-0 text-mint" />
-        <span className="text-xs font-medium text-white/55">Show confidential wallet — encrypt your balance via Fairblock</span>
+        <span className="text-xs font-medium text-white/55">Bet with privacy wallet</span>
       </label>
+
       {privateTrade && (
         <div className="mb-4 animate-fade-slide-in space-y-2">
-          <div className="border border-mint/20 bg-mint/[0.04] px-3 py-2 text-[11px] leading-5 text-mint/70">
-            <strong className="font-bold text-mint">How privacy works:</strong> your prediction trade goes on-chain as normal.
-            Use your confidential wallet below to deposit collateral — that balance is encrypted and hidden from block explorers.
-          </div>
+          {pw.isReady ? (
+            <div className="border border-mint/20 bg-mint/[0.04] p-3 text-[11px] leading-5">
+              <div className="flex items-center justify-between">
+                <span className="text-white/50">Privacy wallet</span>
+                <span className="font-mono text-mint/80">{pw.address.slice(0, 8)}…{pw.address.slice(-6)}</span>
+              </div>
+              <div className="mt-1.5 flex items-center justify-between">
+                <span className="text-white/50">On-chain USDC</span>
+                <span className={`font-bold ${pwUsdcBalance >= stake && stake > 0 ? 'text-mint' : 'text-amber'}`}>
+                  {pwUsdcBalance.toFixed(2)} USDC
+                </span>
+              </div>
+              {pwUsdcBalance < stake && stake > 0 && (
+                <p className="mt-1.5 text-amber/80">
+                  Need {(stake - pwUsdcBalance).toFixed(2)} more USDC. Withdraw from your vault or fund via faucet.
+                </p>
+              )}
+            </div>
+          ) : (
+            <div className="border border-white/10 bg-white/[0.025] p-3 text-[11px] text-white/45">
+              Set up your privacy wallet in Portfolio first.
+            </div>
+          )}
           <ConfidentialPositionPanel compact />
         </div>
       )}
@@ -416,21 +510,23 @@ export function TradingPanel({ market, trades = [] }: { market: Market; trades?:
         }`}
       >
         {isBusy
-          ? 'Waiting for wallet…'
+          ? 'Waiting…'
           : isClosed
             ? 'Market Closed'
             : !hasDeployedRoute
               ? 'Deploy contracts first'
-              : !isConnected
-                ? 'Connect wallet to trade'
-                : requiresApproval
-                  ? `Approve & Buy ${outcome} — $${stake > 0 ? stake.toFixed(2) : '0.00'}`
-                  : `Buy ${outcome} — $${stake > 0 ? stake.toFixed(2) : '0.00'}`}
+              : usePrivacy
+                ? `Buy ${outcome} (Private) — $${stake > 0 ? stake.toFixed(2) : '0.00'}`
+                : !isConnected
+                  ? 'Connect wallet to trade'
+                  : requiresApproval
+                    ? `Approve & Buy ${outcome} — $${stake > 0 ? stake.toFixed(2) : '0.00'}`
+                    : `Buy ${outcome} — $${stake > 0 ? stake.toFixed(2) : '0.00'}`}
       </button>
-      {privateTrade && (
+      {usePrivacy && (
         <p className="mt-2 text-[11px] leading-4 text-white/35">
-          Confidential mode deposits your stake via Fairblock&apos;s encrypted contract on Arc.
-          Your position size is hidden on-chain; your wallet address remains public.
+          Trade is signed by your privacy wallet — your main wallet address is never exposed on-chain.
+          USDC must be at the privacy wallet address (withdraw from vault first if needed).
         </p>
       )}
       <TransactionStatus status={txStatus} message={txMessage} />
