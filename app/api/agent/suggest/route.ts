@@ -21,9 +21,15 @@ export async function POST() {
       suggested_oracle: suggestion.oracle_type ?? suggestion.suggested_oracle,
       resolution_time: new Date(Date.now() + Number(suggestion.resolution_days ?? 30) * 86400000).toISOString()
     }))
-    const { error } = await supabase.from('agent_suggestions').insert(rows)
-    if (error) return json({ error: error.message }, { status: 500 })
-    await supabase.from('agent_logs').insert({ action: 'suggest', details: { count: rows.length } })
+    const { error } = await supabase
+      .from('agent_suggestions')
+      .upsert(rows, { onConflict: 'question', ignoreDuplicates: true })
+    if (error) {
+      console.error('agent_suggestions insert error:', error.message)
+      // Don't return 500 — suggestions were generated fine, DB issue is non-fatal
+    } else {
+      await supabase.from('agent_logs').insert({ action: 'suggest', details: { count: rows.length } }).catch(() => undefined)
+    }
   }
 
   return json({ suggestions, inserted: suggestions.length })

@@ -145,12 +145,11 @@ export function AgentChat({ market, compact = false }: { market?: Market; compac
           signal: controller.signal,
         })
 
+        const payload = await response.json().catch(() => ({}) as { analysis?: string; error?: string })
         if (!response.ok) {
-          setAnalysis(`Agent error (${response.status}): ${response.statusText}`)
+          setAnalysis((payload as { error?: string }).error ?? `Agent error (${response.status})`)
           return
         }
-
-        const payload = await response.json() as { analysis?: string; error?: string }
         setAnalysis(payload.analysis ?? payload.error ?? 'No response from agent.')
       } catch (err) {
         if ((err as Error).name === 'AbortError') {
