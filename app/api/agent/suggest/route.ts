@@ -28,7 +28,7 @@ export async function POST() {
       console.error('agent_suggestions insert error:', error.message)
       // Don't return 500 — suggestions were generated fine, DB issue is non-fatal
     } else {
-      await supabase.from('agent_logs').insert({ action: 'suggest', details: { count: rows.length } }).catch(() => undefined)
+      await supabase.from('agent_logs').insert({ action: 'suggest', details: { count: rows.length } })
     }
   }
 
