@@ -124,16 +124,20 @@ export function getAgentWalletClient() {
   })
 }
 
+/** Strip UTF-8 BOM (U+FEFF) that PowerShell injects when piping env vars to stdin */
+const addr = (val: string | undefined): Address | undefined =>
+  val ? (val.replace(/^﻿/, '').trim() as Address) : undefined
+
 export function getContractAddresses() {
   return {
-    usdc: (process.env.NEXT_PUBLIC_USDC_ADDRESS || ARC_CONTRACTS.USDC) as Address,
-    marketFactory: process.env.NEXT_PUBLIC_MARKET_FACTORY as Address | undefined,
-    conditionalToken: process.env.NEXT_PUBLIC_CONDITIONAL_TOKEN as Address | undefined,
-    cpmm: process.env.NEXT_PUBLIC_CPMM as Address | undefined,
-    orderBook: process.env.NEXT_PUBLIC_ORDER_BOOK as Address | undefined,
-    oracleResolver: process.env.NEXT_PUBLIC_ORACLE_RESOLVER as Address | undefined,
-    disputeModule: process.env.NEXT_PUBLIC_DISPUTE_MODULE as Address | undefined,
-    treasuryVault: process.env.NEXT_PUBLIC_TREASURY_VAULT as Address | undefined
+    usdc: (addr(process.env.NEXT_PUBLIC_USDC_ADDRESS) || ARC_CONTRACTS.USDC) as Address,
+    marketFactory: addr(process.env.NEXT_PUBLIC_MARKET_FACTORY),
+    conditionalToken: addr(process.env.NEXT_PUBLIC_CONDITIONAL_TOKEN),
+    cpmm: addr(process.env.NEXT_PUBLIC_CPMM),
+    orderBook: addr(process.env.NEXT_PUBLIC_ORDER_BOOK),
+    oracleResolver: addr(process.env.NEXT_PUBLIC_ORACLE_RESOLVER),
+    disputeModule: addr(process.env.NEXT_PUBLIC_DISPUTE_MODULE),
+    treasuryVault: addr(process.env.NEXT_PUBLIC_TREASURY_VAULT)
   }
 }
 
