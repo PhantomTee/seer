@@ -402,7 +402,7 @@ export default function CreateMarketPage() {
                 </div>
               ) : (
                 <div className="rounded-md border border-amber/20 bg-amber/10 p-4 text-sm leading-6 text-amber">
-                  Optimistic markets require a 500 USDC proposal bond and a 48-hour dispute window.
+                  Optimistic markets require a 5 USDC proposal bond and a 48-hour dispute window.
                 </div>
               )}
             </div>

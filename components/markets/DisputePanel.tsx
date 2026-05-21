@@ -11,8 +11,8 @@ import type { Hex } from 'viem'
 
 type Phase = 'idle' | 'approving' | 'proposing' | 'disputing' | 'settling' | 'done' | 'error'
 
-// 500 USDC proposal bond (6 decimals)
-const PROPOSAL_BOND = parseUnits('500', 6)
+// 5 USDC proposal bond (6 decimals)
+const PROPOSAL_BOND = parseUnits('5', 6)
 
 interface DisputePanelProps {
   market: Market
@@ -50,9 +50,9 @@ export function DisputePanel({ market }: DisputePanelProps) {
     try {
       await ensureChain()
 
-      // Approve the 500 USDC bond
+      // Approve the 5 USDC bond
       setPhase('approving')
-      setMessage('Approving 500 USDC proposal bond…')
+      setMessage('Approving 5 USDC proposal bond…')
       const approvalHash = await writeContractAsync({
         address: usdcAddr,
         abi: erc20Abi,
@@ -139,7 +139,7 @@ export function DisputePanel({ market }: DisputePanelProps) {
 
       <p className="mb-4 text-sm leading-6 text-white/55">
         {market.oracle_mode === 'OPTIMISTIC'
-          ? 'Optimistic markets require a 500 USDC bond to propose an outcome. Anyone may dispute within 48 hours.'
+          ? 'Optimistic markets require a 5 USDC bond to propose an outcome. Anyone may dispute within 48 hours.'
           : 'Trigger Chainlink resolution or propose an outcome if the oracle feed is unavailable.'}
       </p>
 
@@ -219,7 +219,7 @@ export function DisputePanel({ market }: DisputePanelProps) {
       )}
 
       <p className="mt-4 text-[11px] text-white/25">
-        Proposing requires a 500 USDC bond. Bond is returned if your outcome is accepted.
+        Proposing requires a 5 USDC bond. Bond is returned if your outcome is accepted.
       </p>
     </div>
   )

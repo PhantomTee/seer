@@ -41,7 +41,7 @@ contract OracleResolver is Ownable, ReentrancyGuard {
     IDisputeModuleResolver public immutable disputeModule;
     IERC20 public immutable usdc;
 
-    uint256 public proposalBond = 500e6;
+    uint256 public proposalBond = 5e6;
     uint256 public disputeWindow = 48 hours;
     uint256 public maxFeedStaleness = 2 days;
 
