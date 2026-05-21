@@ -3,7 +3,7 @@
 import { AlertTriangle, CheckCircle2, Copy, Eye, EyeOff, KeyRound, Lock, RefreshCcw, ShieldCheck, Trash2 } from 'lucide-react'
 import { useState } from 'react'
 import { usePrivacyWallet } from '@/hooks/usePrivacyWallet'
-import { FaucetButton } from '@/components/shared/FaucetButton'
+import { ARC_TESTNET } from '@/constants/arc'
 
 function shortAddr(addr: string) {
   return addr ? `${addr.slice(0, 6)}…${addr.slice(-4)}` : ''
@@ -252,8 +252,15 @@ export function ConfidentialPositionPanel({ compact = false }: { compact?: boole
                 </div>
               </div>
 
-              {/* Faucet — fund the privacy wallet */}
-              <FaucetButton address={pw.address} label="Fund privacy wallet" />
+              {/* Link to faucet to fund the privacy wallet */}
+              <a
+                href={ARC_TESTNET.faucetUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 border border-white/10 px-3 py-1.5 text-xs font-semibold text-white/50 hover:text-white transition-colors"
+              >
+                Fund via faucet ↗
+              </a>
 
               {/* Show key inline when toggled */}
               {showKey && (
