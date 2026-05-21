@@ -113,7 +113,8 @@ export function getPublicClient() {
 }
 
 export function getAgentWalletClient() {
-  const privateKey = process.env.AGENT_PRIVATE_KEY as `0x${string}` | undefined
+  // Strip UTF-8 BOM (U+FEFF) that PowerShell can inject when piping env vars
+  const privateKey = process.env.AGENT_PRIVATE_KEY?.replace(/^﻿/, '').trim() as `0x${string}` | undefined
   if (!privateKey) return null
   const account = privateKeyToAccount(privateKey)
   return createWalletClient({

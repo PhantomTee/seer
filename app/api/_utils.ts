@@ -9,12 +9,15 @@ export function getBearerToken(request: Request) {
   return header.toLowerCase().startsWith('bearer ') ? header.slice(7) : null
 }
 
+/** Strip UTF-8 BOM (U+FEFF) that PowerShell injects when piping env vars to stdin */
+const stripBom = (val: string | undefined) => val?.replace(/^﻿/, '').trim()
+
 export function assertCron(request: Request) {
   // Vercel Cron automatically sends Authorization: Bearer <CRON_SECRET>
   // We also accept our own AGENT_CRON_SECRET for manual/local calls.
   // If neither is configured (fresh local dev), allow all callers.
-  const vercelSecret = process.env.CRON_SECRET
-  const agentSecret = process.env.AGENT_CRON_SECRET
+  const vercelSecret = stripBom(process.env.CRON_SECRET)
+  const agentSecret = stripBom(process.env.AGENT_CRON_SECRET)
   if (!vercelSecret && !agentSecret) return true
   const bearer = getBearerToken(request)
   const headerSecret = request.headers.get('x-cron-secret')
